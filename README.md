@@ -58,3 +58,23 @@ store의 state 값이 바뀔 때 마다 render 함수를 호출 할 수 있다�
 ```js
 store.subscribe(render);
 ```
+
+action 이라고 하는 객체가 dispatch 에게 전달이 된다.
+
+dispatch 는 reducer 를 호출해서 state 의 값을 바꾼다.
+
+그리고 그 작업이 끝난다음 subscribe 를 이용해서 render 함수를 호출하여 화면을 갱신한다.
+
+dispatch 가 reducer 를 호출할 때, 두개의 값을 전달한다. 첫번째는 현재의 state 값, 두번째는 action data. 이후 return 을 해주는 객체는 state 의 새로운 값이 된다.
+
+즉, reducer 는 state를 입력값으로 받고 action 을 참조해서 새로운 state 값을 만들어 리턴해주는 state 를 가공해주는 가공자 역할이다.
+
+state 값이 변경되었으니 dispatch 가 subscribe 을 통하여 render 가 호출되고 이전의 과정을 반복한다. 그리하여 화면을 갱신해주는 것이다.
+
+요약
+
+- redux 는 state 를 기반으로 화면에 그려주는 것이다.
+
+- state 를 직접 접근할 수 없으니 중간에서 getState 를 통해 state 값을 가져오고, dispatch 를 통해 값을 변경하고, subscribe 를 이용해서 값이 변경됐을 때 구동될 함수들을 등록해준다.
+
+- reducer 를 통해서 state 값을 변경한다.
