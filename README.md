@@ -59,7 +59,7 @@ store의 state 값이 바뀔 때 마다 render 함수를 호출 할 수 있다�
 store.subscribe(render);
 ```
 
-action 이라고 하는 객체가 dispatch 에게 전달이 된다.
+action 이라고 하는 객체를 dispatch 에게 전달이 된다.
 
 dispatch 는 reducer 를 호출해서 state 의 값을 바꾼다.
 
@@ -78,3 +78,21 @@ state 값이 변경되었으니 dispatch 가 subscribe 을 통하여 render 가 
 - state 를 직접 접근할 수 없으니 중간에서 getState 를 통해 state 값을 가져오고, dispatch 를 통해 값을 변경하고, subscribe 를 이용해서 값이 변경됐을 때 구동될 함수들을 등록해준다.
 
 - reducer 를 통해서 state 값을 변경한다.
+
+- redux 는 단일 store 로 구성되며, 이 store 는 reducer 를 통하여 가공되기 때문에 애플리케이션의 상태가 궁금할때는 reducer 를 이용하면 된다.
+
+  예를 들어, reducer 안에 `consol.log(action.type, action, state, newState)` 를 넣으면 action 의 값과 이전의 데이터, 바뀐 데이터를 알 수 있다.
+
+<br>
+
+### **Redux devtools**
+
+---
+
+<br>
+
+1. chrome 기준으로 확장프로그램 'Redux DevTools' 를 설치한다.
+
+2. `window.__REDUX_DEVTOOLS_EXTENSION__&& window.__REDUX_DEVTOOLS_EXTENSION__()` 을 reducer 를 생성하는 createStore 안에 추가한다.
+
+3. 개발자도구에서 'Redux' 목록 혹은, 확장프로그램으로 확인 할 수 있다.
