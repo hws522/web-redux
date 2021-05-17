@@ -26,9 +26,10 @@
         if (action.type === "CHANGE_COLOR") {
           newState = Object.assign({}, state, { color: action.color }); // 직접 수정하는 것이 아니라, 이렇게 복제된 값을 수정해서 받아와야 한다.
         }
+        console.log(action.type, action, state, newState);
         return newState;
       }
-      var store = Redux.createStore(reducer);
+      var store = Redux.createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
       function red() {
         var state = store.getState();
